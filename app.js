@@ -115,12 +115,12 @@ const AVATARS_BY_COMBAT = {
 };
 
 const STAT_CONFIG = [
-  {key:'Fuerza',      color:'var(--str)',   base:40},
-  {key:'Velocidad',   color:'var(--spd)',   base:35},
-  {key:'Inteligencia',color:'var(--int)',   base:45},
-  {key:'Durabilidad', color:'var(--dur)',   base:40},
-  {key:'Energía',     color:'var(--ener)',  base:30},
-  {key:'Combate',     color:'var(--fight)', base:50},
+  {key:'Fuerza',      color:'var(--str)',   base:58},
+  {key:'Velocidad',   color:'var(--spd)',   base:55},
+  {key:'Inteligencia',color:'var(--int)',   base:60},
+  {key:'Durabilidad', color:'var(--dur)',   base:58},
+  {key:'Energía',     color:'var(--ener)',  base:52},
+  {key:'Combate',     color:'var(--fight)', base:62},
 ];
 
 const STAT_BOOSTS = {
@@ -510,24 +510,33 @@ async function runBattle(){
   await sleep(500);
 
   let round = 1;
-  while(hero._hp > 0 && rival._hp > 0 && round <= 10){
-    await sleep(600);
+  while(hero._hp > 0 && rival._hp > 0){
+    await sleep(650);
 
     // Hero ataca
-    const heroDmg = Math.max(5, randN(heroPow * 0.08, heroPow * 0.18));
+    const heroDmg = Math.max(8, randN(heroPow * 0.18, heroPow * 0.32));
     rival._hp -= heroDmg;
     updateHpBar('rival', rival._hp, rival._maxHp);
     const heroMove = rand(hero.powers);
     addLog(`💥 Ronda ${round}: ${hero.name} usa ${heroMove.name} — ${Math.round(heroDmg)} daño`, 'hit-rival');
 
     await sleep(500);
-    if(rival._hp <= 0) break;
+    if(rival._hp <= 0){
+      rival._hp = 0;
+      updateHpBar('rival', 0, rival._maxHp);
+      break;
+    }
 
     // Rival ataca
-    const rivalDmg = Math.max(5, randN(rivalPow * 0.07, rivalPow * 0.16));
+    const rivalDmg = Math.max(8, randN(rivalPow * 0.16, rivalPow * 0.28));
     hero._hp -= rivalDmg;
     updateHpBar('hero', hero._hp, hero._maxHp);
     addLog(`🔥 ${rival.name} contraataca — ${Math.round(rivalDmg)} daño`, 'hit-hero');
+
+    if(hero._hp <= 0){
+      hero._hp = 0;
+      updateHpBar('hero', 0, hero._maxHp);
+    }
 
     round++;
   }
@@ -538,10 +547,10 @@ async function runBattle(){
   resultBox.style.display = 'block';
   resultBox.classList.add('show');
 
-  if(hero._hp > rival._hp){
-    resultBox.innerHTML = `<div class="battle-result-title win">¡VICTORIA!</div><p class="battle-result-sub">${hero.name} derrotó a ${rival.name} con ${Math.round(Math.max(0,hero._hp))} HP restantes.</p>`;
+  if(rival._hp <= 0 && hero._hp > 0){
+    resultBox.innerHTML = `<div class="battle-result-title win">¡VICTORIA!</div><p class="battle-result-sub">${hero.name} derrotó a ${rival.name} con ${Math.round(hero._hp)} HP restantes.</p>`;
     addLog(`🏆 ${hero.name} gana el combate!`, 'log-system');
-  } else if(rival._hp > hero._hp){
+  } else if(hero._hp <= 0 && rival._hp > 0){
     resultBox.innerHTML = `<div class="battle-result-title lose">DERROTA</div><p class="battle-result-sub">${rival.name} fue demasiado poderoso esta vez. ¡Vuelve más fuerte!</p>`;
     addLog(`💀 ${rival.name} gana el combate.`, 'log-system');
   } else {
