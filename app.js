@@ -134,16 +134,37 @@ const STAT_BOOSTS = {
 
 // Rivales para batalla y comparar
 const RIVALS = [
-  {name:'Thanos',      avatar:'💜', uni:'MARVEL', power:95, hp:200, stats:{Fuerza:95,Velocidad:60,Inteligencia:85,Durabilidad:90,Energía:88,Combate:80}},
-  {name:'Superman',    avatar:'🟦', uni:'DC',     power:92, hp:195, stats:{Fuerza:100,Velocidad:95,Inteligencia:80,Durabilidad:95,Energía:90,Combate:85}},
-  {name:'Iron Man',    avatar:'🔴', uni:'MARVEL', power:78, hp:160, stats:{Fuerza:65,Velocidad:75,Inteligencia:100,Durabilidad:70,Energía:85,Combate:70}},
-  {name:'Batman',      avatar:'🦇', uni:'DC',     power:72, hp:150, stats:{Fuerza:60,Velocidad:70,Inteligencia:100,Durabilidad:65,Energía:55,Combate:90}},
-  {name:'Magneto',     avatar:'🔵', uni:'MARVEL', power:88, hp:175, stats:{Fuerza:70,Velocidad:65,Inteligencia:90,Durabilidad:75,Energía:95,Combate:72}},
-  {name:'Wonder Woman',avatar:'⭐', uni:'DC',     power:90, hp:190, stats:{Fuerza:95,Velocidad:85,Inteligencia:80,Durabilidad:88,Energía:82,Combate:92}},
-  {name:'Wolverine',   avatar:'🟡', uni:'MARVEL', power:82, hp:170, stats:{Fuerza:80,Velocidad:65,Inteligencia:60,Durabilidad:95,Energía:60,Combate:95}},
-  {name:'The Flash',   avatar:'🔶', uni:'DC',     power:85, hp:165, stats:{Fuerza:55,Velocidad:100,Inteligencia:75,Durabilidad:70,Energía:78,Combate:75}},
-  {name:'Doctor Strange',avatar:'🌀',uni:'MARVEL',power:89,hp:172, stats:{Fuerza:50,Velocidad:70,Inteligencia:95,Durabilidad:72,Energía:98,Combate:78}},
-  {name:'Joker',       avatar:'🃏', uni:'DC',     power:65, hp:130, stats:{Fuerza:50,Velocidad:60,Inteligencia:90,Durabilidad:55,Energía:40,Combate:70}},
+  // ── MARVEL ──
+  {name:'Thanos',         avatar:'💜', uni:'MARVEL', power:95, hp:200, stats:{Fuerza:95,Velocidad:60,Inteligencia:85,Durabilidad:90,Energía:88,Combate:80}},
+  {name:'Iron Man',       avatar:'🔴', uni:'MARVEL', power:78, hp:160, stats:{Fuerza:65,Velocidad:75,Inteligencia:100,Durabilidad:70,Energía:85,Combate:70}},
+  {name:'Magneto',        avatar:'🔵', uni:'MARVEL', power:88, hp:175, stats:{Fuerza:70,Velocidad:65,Inteligencia:90,Durabilidad:75,Energía:95,Combate:72}},
+  {name:'Wolverine',      avatar:'🟡', uni:'MARVEL', power:82, hp:170, stats:{Fuerza:80,Velocidad:65,Inteligencia:60,Durabilidad:95,Energía:60,Combate:95}},
+  {name:'Doctor Strange', avatar:'🌀', uni:'MARVEL', power:89, hp:172, stats:{Fuerza:50,Velocidad:70,Inteligencia:95,Durabilidad:72,Energía:98,Combate:78}},
+  {name:'Spider-Man',     avatar:'🕷️', uni:'MARVEL', power:80, hp:158, stats:{Fuerza:75,Velocidad:88,Inteligencia:85,Durabilidad:68,Energía:65,Combate:88}},
+  {name:'Thor',           avatar:'⚡', uni:'MARVEL', power:91, hp:192, stats:{Fuerza:98,Velocidad:80,Inteligencia:70,Durabilidad:92,Energía:90,Combate:85}},
+  {name:'Black Panther',  avatar:'🐾', uni:'MARVEL', power:76, hp:155, stats:{Fuerza:72,Velocidad:80,Inteligencia:90,Durabilidad:74,Energía:60,Combate:92}},
+  {name:'Captain Marvel', avatar:'⭐', uni:'MARVEL', power:90, hp:188, stats:{Fuerza:90,Velocidad:88,Inteligencia:75,Durabilidad:88,Energía:95,Combate:82}},
+  {name:'Deadpool',       avatar:'🗡️', uni:'MARVEL', power:74, hp:162, stats:{Fuerza:68,Velocidad:72,Inteligencia:65,Durabilidad:98,Energía:50,Combate:90}},
+  {name:'Venom',          avatar:'🖤', uni:'MARVEL', power:83, hp:174, stats:{Fuerza:88,Velocidad:68,Inteligencia:55,Durabilidad:85,Energía:70,Combate:80}},
+  {name:'Loki',           avatar:'🟢', uni:'MARVEL', power:86, hp:168, stats:{Fuerza:65,Velocidad:72,Inteligencia:98,Durabilidad:70,Energía:90,Combate:75}},
+  {name:'Black Widow',    avatar:'🕸️', uni:'MARVEL', power:68, hp:135, stats:{Fuerza:58,Velocidad:85,Inteligencia:92,Durabilidad:60,Energía:45,Combate:95}},
+  {name:'Hulk',           avatar:'💚', uni:'MARVEL', power:97, hp:210, stats:{Fuerza:100,Velocidad:55,Inteligencia:45,Durabilidad:98,Energía:75,Combate:78}},
+  {name:'Silver Surfer',  avatar:'🪙', uni:'MARVEL', power:93, hp:195, stats:{Fuerza:88,Velocidad:98,Inteligencia:80,Durabilidad:90,Energía:98,Combate:72}},
+  // ── DC ──
+  {name:'Superman',       avatar:'🟦', uni:'DC',     power:92, hp:195, stats:{Fuerza:100,Velocidad:95,Inteligencia:80,Durabilidad:95,Energía:90,Combate:85}},
+  {name:'Batman',         avatar:'🦇', uni:'DC',     power:72, hp:150, stats:{Fuerza:60,Velocidad:70,Inteligencia:100,Durabilidad:65,Energía:55,Combate:90}},
+  {name:'Wonder Woman',   avatar:'🌟', uni:'DC',     power:90, hp:190, stats:{Fuerza:95,Velocidad:85,Inteligencia:80,Durabilidad:88,Energía:82,Combate:92}},
+  {name:'The Flash',      avatar:'🔶', uni:'DC',     power:85, hp:165, stats:{Fuerza:55,Velocidad:100,Inteligencia:75,Durabilidad:70,Energía:78,Combate:75}},
+  {name:'Joker',          avatar:'🃏', uni:'DC',     power:65, hp:130, stats:{Fuerza:50,Velocidad:60,Inteligencia:90,Durabilidad:55,Energía:40,Combate:70}},
+  {name:'Aquaman',        avatar:'🔱', uni:'DC',     power:84, hp:172, stats:{Fuerza:92,Velocidad:75,Inteligencia:72,Durabilidad:85,Energía:78,Combate:80}},
+  {name:'Green Lantern',  avatar:'💚', uni:'DC',     power:87, hp:178, stats:{Fuerza:68,Velocidad:82,Inteligencia:85,Durabilidad:75,Energía:98,Combate:74}},
+  {name:'Lex Luthor',     avatar:'🧠', uni:'DC',     power:70, hp:140, stats:{Fuerza:55,Velocidad:58,Inteligencia:100,Durabilidad:62,Energía:72,Combate:65}},
+  {name:'Harley Quinn',   avatar:'🎭', uni:'DC',     power:63, hp:125, stats:{Fuerza:55,Velocidad:72,Inteligencia:80,Durabilidad:58,Energía:38,Combate:85}},
+  {name:'Nightwing',      avatar:'🌑', uni:'DC',     power:71, hp:145, stats:{Fuerza:62,Velocidad:82,Inteligencia:85,Durabilidad:65,Energía:50,Combate:92}},
+  {name:'Darkseid',       avatar:'🔥', uni:'DC',     power:96, hp:205, stats:{Fuerza:98,Velocidad:62,Inteligencia:88,Durabilidad:95,Energía:92,Combate:82}},
+  {name:'Green Arrow',    avatar:'🏹', uni:'DC',     power:67, hp:132, stats:{Fuerza:60,Velocidad:75,Inteligencia:88,Durabilidad:62,Energía:50,Combate:88}},
+  {name:'Cyborg',         avatar:'🤖', uni:'DC',     power:78, hp:158, stats:{Fuerza:72,Velocidad:70,Inteligencia:90,Durabilidad:78,Energía:85,Combate:72}},
+  {name:'Shazam',         avatar:'⚡', uni:'DC',     power:88, hp:180, stats:{Fuerza:95,Velocidad:85,Inteligencia:68,Durabilidad:88,Energía:88,Combate:80}},
 ];
 
 // ── UTILS ────────────────────────────────────────────────
