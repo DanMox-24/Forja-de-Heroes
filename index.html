@@ -10,22 +10,17 @@
 </head>
 <body>
 
-<!-- Cursor personalizado -->
 <div id="cursor"></div>
 <div id="cursor-trail"></div>
-
 <canvas id="bg-canvas"></canvas>
 
-<!-- ══ PANTALLA 1: INTRO ══ -->
+<!-- ══ INTRO ══ -->
 <div class="screen active" id="screen-intro">
   <div class="intro-content">
     <div class="intro-badge">MARVEL × DC UNIVERSE</div>
     <h1 class="intro-logo">HERO<br><span>FORGE</span></h1>
     <p class="intro-tagline">Tu nombre. Tus poderes. Tu universo.</p>
-    <button class="btn-main" id="startBtn">
-      <span class="btn-text">Crear mi identidad</span>
-      <span class="btn-arrow">→</span>
-    </button>
+    <button class="btn-main" id="startBtn">Crear mi identidad →</button>
     <p class="intro-note">Más de 200 combinaciones únicas</p>
   </div>
   <div class="intro-side">
@@ -40,10 +35,9 @@
   </div>
 </div>
 
-<!-- ══ PANTALLA 2: FORMULARIO ══ -->
+<!-- ══ FORMULARIO ══ -->
 <div class="screen" id="screen-form">
   <div class="form-container">
-
     <div class="form-header">
       <button class="back-link" id="backBtn">← Volver</button>
       <h2 class="form-title">Construye tu identidad</h2>
@@ -56,30 +50,20 @@
       </div>
     </div>
 
-    <!-- PASO 1: Info básica -->
     <div class="form-step active" id="step-1">
       <h3 class="step-title">¿Quién eres?</h3>
-
       <div class="field">
         <label class="field-label">Tu nombre de héroe</label>
         <input type="text" id="heroName" class="field-input" placeholder="Ej: Nightblade, Starfire, Nova..." maxlength="20"/>
       </div>
-
       <div class="field">
-        <label class="field-label">¿De qué universo vienes?</label>
+        <label class="field-label">Universo</label>
         <div class="universe-toggle">
-          <button class="uni-btn active" data-value="Marvel">
-            <span class="uni-logo marvel-logo">MARVEL</span>
-          </button>
-          <button class="uni-btn" data-value="DC">
-            <span class="uni-logo dc-logo">DC</span>
-          </button>
-          <button class="uni-btn" data-value="Ambos">
-            <span class="uni-logo both-logo">AMBOS</span>
-          </button>
+          <button class="uni-btn active" data-value="Marvel"><span class="marvel-logo">MARVEL</span></button>
+          <button class="uni-btn" data-value="DC"><span class="dc-logo">DC</span></button>
+          <button class="uni-btn" data-value="Ambos"><span class="both-logo">AMBOS</span></button>
         </div>
       </div>
-
       <div class="field">
         <label class="field-label">¿Héroe o villano?</label>
         <div class="side-toggle">
@@ -88,44 +72,23 @@
           <button class="side-btn" data-value="Antihéroe">⚖️ Antihéroe</button>
         </div>
       </div>
-
       <button class="btn-main" id="toStep2">Siguiente →</button>
+      <p class="form-error" id="error1"></p>
     </div>
 
-    <!-- PASO 2: Origen y tipo -->
     <div class="form-step" id="step-2">
       <h3 class="step-title">¿Cómo obtuviste tus poderes?</h3>
-
       <div class="field">
-        <label class="field-label">Origen de tus poderes</label>
+        <label class="field-label">Origen</label>
         <div class="origin-grid">
-          <button class="origin-card" data-value="Accidente científico">
-            <span class="origin-icon">☢️</span>
-            <span>Accidente científico</span>
-          </button>
-          <button class="origin-card" data-value="Entrenamiento extremo">
-            <span class="origin-icon">🥋</span>
-            <span>Entrenamiento extremo</span>
-          </button>
-          <button class="origin-card" data-value="Tecnología avanzada">
-            <span class="origin-icon">🤖</span>
-            <span>Tecnología avanzada</span>
-          </button>
-          <button class="origin-card" data-value="Magia ancestral">
-            <span class="origin-icon">✨</span>
-            <span>Magia ancestral</span>
-          </button>
-          <button class="origin-card" data-value="Alienígena">
-            <span class="origin-icon">👽</span>
-            <span>Alienígena</span>
-          </button>
-          <button class="origin-card" data-value="Mutación genética">
-            <span class="origin-icon">🧬</span>
-            <span>Mutación genética</span>
-          </button>
+          <button class="origin-card" data-value="Accidente científico"><span class="origin-icon">☢️</span><span>Accidente científico</span></button>
+          <button class="origin-card" data-value="Entrenamiento extremo"><span class="origin-icon">🥋</span><span>Entrenamiento extremo</span></button>
+          <button class="origin-card" data-value="Tecnología avanzada"><span class="origin-icon">🤖</span><span>Tecnología avanzada</span></button>
+          <button class="origin-card" data-value="Magia ancestral"><span class="origin-icon">✨</span><span>Magia ancestral</span></button>
+          <button class="origin-card" data-value="Alienígena"><span class="origin-icon">👽</span><span>Alienígena</span></button>
+          <button class="origin-card" data-value="Mutación genética"><span class="origin-icon">🧬</span><span>Mutación genética</span></button>
         </div>
       </div>
-
       <div class="field">
         <label class="field-label">Tipo de combate</label>
         <div class="combat-grid">
@@ -137,19 +100,17 @@
           <button class="combat-btn" data-value="Magia y hechizos">🔮 Magia</button>
         </div>
       </div>
-
       <div class="step-nav">
         <button class="btn-ghost" id="backToStep1">← Atrás</button>
         <button class="btn-main" id="toStep3">Siguiente →</button>
       </div>
+      <p class="form-error" id="error2"></p>
     </div>
 
-    <!-- PASO 3: Personalidad -->
     <div class="form-step" id="step-3">
       <h3 class="step-title">¿Cuál es tu motivación?</h3>
-
       <div class="field">
-        <label class="field-label">Lo que te mueve a actuar</label>
+        <label class="field-label">Lo que te mueve</label>
         <div class="motivation-grid">
           <button class="motiv-btn" data-value="Proteger a los inocentes">🛡️ Proteger inocentes</button>
           <button class="motiv-btn" data-value="Venganza personal">🔥 Venganza</button>
@@ -159,23 +120,19 @@
           <button class="motiv-btn" data-value="Redimirse">💫 Redención</button>
         </div>
       </div>
-
       <div class="step-nav">
         <button class="btn-ghost" id="backToStep2">← Atrás</button>
         <button class="btn-main" id="generateBtn">⚡ Forjar identidad</button>
       </div>
-
-      <p class="form-error" id="formError"></p>
+      <p class="form-error" id="error3"></p>
     </div>
-
   </div>
 </div>
 
-<!-- ══ PANTALLA 3: RESULTADO ══ -->
+<!-- ══ RESULTADO ══ -->
 <div class="screen" id="screen-result">
   <div class="result-container">
 
-    <!-- Hero card -->
     <div class="hero-card">
       <div class="hero-card-bg" id="heroBg"></div>
       <div class="hero-card-content">
@@ -184,43 +141,37 @@
           <span class="side-badge" id="sideBadge">HÉROE</span>
         </div>
         <div class="hero-avatar" id="heroAvatar">⚡</div>
-        <h2 class="hero-codename" id="heroCodename">NIGHTBLADE</h2>
-        <p class="hero-realname" id="heroRealname">Identidad secreta</p>
+        <h2 class="hero-codename" id="heroCodename">NOMBRE</h2>
+        <p class="hero-realname">Identidad secreta</p>
         <div class="hero-tags" id="heroTags"></div>
       </div>
     </div>
 
-    <!-- Stats -->
     <div class="info-block">
       <h3 class="block-title">⚡ Estadísticas de combate</h3>
       <div class="stats-list" id="statsList"></div>
     </div>
 
-    <!-- Poderes -->
     <div class="info-block">
       <h3 class="block-title">🔥 Poderes y habilidades</h3>
       <div class="powers-grid" id="powersGrid"></div>
     </div>
 
-    <!-- Inspiración -->
     <div class="info-block">
       <h3 class="block-title">🦸 Inspirado en</h3>
       <div class="inspo-row" id="inspoRow"></div>
     </div>
 
-    <!-- Equipamiento -->
     <div class="info-block">
       <h3 class="block-title">🎒 Equipamiento</h3>
       <div class="gear-grid" id="gearGrid"></div>
     </div>
 
-    <!-- Backstory -->
     <div class="info-block">
       <h3 class="block-title">📖 Historia de origen</h3>
       <p class="origin-text" id="originText"></p>
     </div>
 
-    <!-- Némesis y debilidad -->
     <div class="two-col">
       <div class="info-block">
         <h3 class="block-title">💀 Némesis</h3>
@@ -232,16 +183,65 @@
       </div>
     </div>
 
-    <!-- Frase -->
     <div class="quote-block">
       <p class="hero-quote" id="heroQuote"></p>
     </div>
 
     <div class="result-actions">
-      <button class="btn-main" id="rerollBtn">🎲 Nueva identidad</button>
-      <button class="btn-ghost" id="printBtn">📄 Guardar ficha</button>
+      <button class="btn-main" id="battleBtn">⚔️ Ir a batalla</button>
+      <button class="btn-main btn-blue" id="compareBtn">🆚 Comparar</button>
+      <button class="btn-ghost" id="saveToGalleryBtn">💾 Guardar</button>
     </div>
+    <div class="result-actions" style="margin-top:.6rem">
+      <button class="btn-ghost" id="rerollBtn">🎲 Nueva identidad</button>
+      <button class="btn-ghost" id="galleryBtn">🖼️ Galería</button>
+      <button class="btn-ghost" id="printBtn">📄 Ficha PDF</button>
+    </div>
+    <p class="saved-msg" id="savedMsg"></p>
+  </div>
+</div>
 
+<!-- ══ BATALLA ══ -->
+<div class="screen" id="screen-battle">
+  <div class="battle-container">
+    <button class="back-link" id="backFromBattle">← Volver a mi ficha</button>
+    <h2 class="form-title" style="text-align:center;margin-bottom:1.5rem">⚔️ Arena de Batalla</h2>
+    <div class="battle-arena" id="battleArena"></div>
+    <div class="battle-log" id="battleLog"></div>
+    <div class="battle-actions" id="battleActions">
+      <button class="btn-main" id="startBattleBtn">⚡ Iniciar combate</button>
+      <button class="btn-ghost" id="newRivalBtn">🔀 Cambiar rival</button>
+    </div>
+    <div class="battle-result-box" id="battleResultBox"></div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <button class="btn-ghost" id="backFromBattle2">← Volver a mi ficha</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COMPARAR ══ -->
+<div class="screen" id="screen-compare">
+  <div class="compare-container">
+    <button class="back-link" id="backFromCompare">← Volver</button>
+    <h2 class="form-title" style="text-align:center;margin-bottom:1.5rem">🆚 Comparar Héroes</h2>
+    <div class="compare-grid" id="compareGrid"></div>
+    <div style="text-align:center;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="btn-main" id="rerollCompareBtn">🔀 Nuevo rival</button>
+      <button class="btn-ghost" id="backFromCompare2">← Volver a mi ficha</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA ══ -->
+<div class="screen" id="screen-gallery">
+  <div class="gallery-container">
+    <button class="back-link" id="backFromGallery">← Volver</button>
+    <h2 class="form-title">🖼️ Mi Galería de Héroes</h2>
+    <p class="gallery-sub">Los personajes que has creado en esta sesión</p>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <div style="text-align:center;margin-top:2rem">
+      <button class="btn-ghost" id="clearGalleryBtn">🗑️ Limpiar galería</button>
+    </div>
   </div>
 </div>
 
